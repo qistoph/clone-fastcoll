@@ -3,6 +3,7 @@ BIN=fastcoll
 CXX=g++
 CC=gcc
 CFLAGS=-g -Wall -O2
+LIB=-lboost_system -lboost_program_options -lboost_filesystem
 
 .cpp.o:
 	$(CXX) $(CFLAGS) -c $^ $(INC_DIR)
@@ -20,7 +21,7 @@ CFLAGS=-g -Wall -O2
 all: $(BIN)
 
 $(BIN): $(BIN_OBJS)
-	$(CXX) $(CFLAGS) -o $@ $^  $(LIB)
+	$(CXX) $(CFLAGS) -o $@ $^ $(LIB)
 
 fastcoll: main.o md5.o block0.o block1.o block1stevens00.o block1stevens01.o block1stevens10.o block1stevens11.o block1wang.o
 
